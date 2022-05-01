@@ -1,0 +1,34 @@
+<h1>Welcome to Cars Companies</h1>
+<br/>
+<form>
+    List of Car Companies. Search with company name
+    <input type="text" name="searchText" [(ngModel)]="searchText" />
+    <button (click)="search()">search</button>
+</form>
+<ol>
+    <li *ngFor = "let car of cars">
+        <a routerLink = "/cars/{{car._id}}">
+            {{car.name}}<br/>
+        </a>
+
+    </li>
+</ol>
+<br/>
+Add New Car Company <br/>
+<form action="">
+    <div class="preference">
+        <label for="name">Name :</label>
+        <input type="text" id="name" name = "name" required [(ngModel)] = "newCar.name"> <br/>
+    </div>
+    <div class="preference">
+        <label for="name">Year :</label>
+        <input type="text"  id="year" name = "year" required [(ngModel)] = "newCar.year"> <br/>
+    </div>
+    <div class="preference">
+        <label for="name">Country :</label>
+        <input type="text"  id="country" name = "country" required [(ngModel)] = "newCar.country"> <br/>
+    </div>
+    <br/>
+    <button (click) = "save()" type="submit" routerLink = "/cars">Add Car</button>
+</form>
+

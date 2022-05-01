@@ -1,0 +1,29 @@
+<h1>{{car.name}} full details</h1>
+
+Name    : {{car.name}} <br/>
+Year    : {{car.year}} <br/>
+Country : {{car.country}} <br/>
+<br/>
+
+Models
+<ol>
+    <li *ngFor = "let m of car.model">
+        <a routerLink = "/cars/{{car._id}}/models/{{m._id}}">
+            {{m.name}}<br/>
+        </a>
+    </li>
+</ol>
+
+<button (click) = "delete()" type="submit" routerLink = "/cars">Delete</button>
+<br/>
+<br/>
+<br/>
+
+Add New Car Model: <br/>
+<form action="">
+    <label for="name">Name :</label>
+    <input type="text"  id="name" name = "name" required [(ngModel)] = "newModel.name"> <br/>
+    <label for="name">Make :</label>
+    <input type="text"  id="model" name = "make" required [(ngModel)] = "newModel.make"> <br/>
+    <button (click) = "save()" type="submit" routerLink = "/cars">Add Model</button>
+</form>
